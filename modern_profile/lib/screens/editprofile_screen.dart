@@ -52,7 +52,7 @@ class EditProfileScreen extends StatelessWidget {
             height: 20,
           ),
           ProfileMenu(
-            title: "User manage",
+            title: "User Manage",
             icons: Icons.person,
           ),
           SizedBox(

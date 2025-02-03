@@ -6,6 +6,7 @@ import 'package:modern_profile/components/profile_menu.dart';
 import 'package:modern_profile/constant/constant.dart';
 import 'package:modern_profile/screens/editprofile_screen.dart';
 import 'package:modern_profile/screens/favorite_screen.dart';
+import 'package:modern_profile/screens/home_screen.dart';
 import 'package:modern_profile/screens/setting_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -25,9 +26,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
   }
   final List<Widget> _pages = [
-    Text('home'),
+    //Text('home'),
     //Text('favorite'),
     //Text('setting'),
+    Home(),
     FavoriteScreen(),
     SettingScreen(),
     EditProfileScreen(),
@@ -44,7 +46,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         title: Center(
             child: Text(
-          'Edit Profile',
+          '',  //'Edit Profile',
           style: texttitle,
         )),
         actions: const [

@@ -5,6 +5,7 @@ import 'package:modern_profile/components/profile_img.dart';
 import 'package:modern_profile/components/profile_menu.dart';
 import 'package:modern_profile/constant/constant.dart';
 import 'package:modern_profile/screens/editprofile_screen.dart';
+import 'package:modern_profile/screens/favorite_screen.dart';
 import 'package:modern_profile/screens/setting_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -25,8 +26,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
   final List<Widget> _pages = [
     Text('home'),
-    Text('favorite'),
+    //Text('favorite'),
     //Text('setting'),
+    FavoriteScreen(),
     SettingScreen(),
     EditProfileScreen(),
   ];

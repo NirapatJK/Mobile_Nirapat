@@ -55,7 +55,7 @@ class DestinationWidget extends StatelessWidget {
                             rate,
                             style: const TextStyle(
                               fontSize: 18,
-                              color: primaryColors,
+                              color: Colors.black45,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

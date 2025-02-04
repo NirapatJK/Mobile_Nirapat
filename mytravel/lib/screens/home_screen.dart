@@ -3,6 +3,9 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:mytravel/constants/colors.dart';
 import 'package:mytravel/models/data.dart';
 import 'package:mytravel/widgets/destination.dart';
+import 'package:mytravel/widgets/icon_tab.dart';
+import 'package:mytravel/widgets/profile.dart';
+import 'package:mytravel/widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,9 +18,27 @@ class HomeScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-          
+            //Row1
+              ProfileWidgets(),
+            //Row2
+            const SizedBox(height: 15,),
+            Text("Point of Interest", 
+            style: Theme.of(context).textTheme.headlineMedium!.
+            copyWith(
+              color: primaryColors, fontWeight: FontWeight.bold,
+            ),),
+
+            //Row3
+            const SizedBox(height: 20,), 
+            SearchingBar(),
+
+            //Row4
+            const SizedBox(height: 20,),
+            const IconTab(),
             //Row5
+            const SizedBox(height: 20,),
             const Row(
               children: [
                 Text('Top Destinations', 

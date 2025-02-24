@@ -35,7 +35,7 @@ class SignInPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '\nplease sign in with your email and password.\n',
+                  '\nPlease sign in with your email and password.\n',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.lato(
                     textStyle: Theme.of(context).textTheme.displaySmall,

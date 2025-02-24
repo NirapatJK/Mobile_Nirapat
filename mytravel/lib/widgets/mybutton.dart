@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton({
-    super.key,this.onTap, required this.labelText,
+    super.key,this.onTap, required this.labelText, required String hinText,
   });
 
   final Function()? onTap;

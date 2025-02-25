@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(textTheme: GoogleFonts.lexendTextTheme()),
       title: 'My travel 1.0',
-      home: show ? const OnBoardingScreen() : SignInPage(),
+      home: show ? const OnBoardingScreen() : HomeScreen(),
+      //home: show ? const OnBoardingScreen() : SignInPage(),
       //home: SignInPage(),
     );
   }

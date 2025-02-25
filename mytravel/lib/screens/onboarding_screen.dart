@@ -54,7 +54,7 @@ class OnBoardingScreen extends StatelessWidget {
     prefs.setBool('ON_BOARDING', false);
 
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) =>  SignInPage()),
+      MaterialPageRoute(builder: (_) =>  HomeScreen()),
     );
   }
 

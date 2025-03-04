@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:mytravel/constants/colors.dart';
+import 'package:mytravel/screens/onboarding_screen.dart';
 //import 'package:mytravel/models/data.dart';
 import 'package:mytravel/widgets/destination.dart';
 import 'package:mytravel/widgets/icon_tab.dart';
@@ -9,6 +10,7 @@ import 'package:mytravel/widgets/search_bar.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

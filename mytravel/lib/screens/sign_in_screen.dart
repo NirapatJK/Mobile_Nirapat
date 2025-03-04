@@ -1,18 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mytravel/screens/home_screen.dart';
 import 'package:mytravel/screens/sign_up_screen.dart';
 import 'package:mytravel/widgets/my_iconbtn.dart';
 import 'package:mytravel/widgets/mybutton.dart';
 import 'package:mytravel/widgets/mytextfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   SignInPage({super.key});
 
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
   final emailController = TextEditingController();
+
   final pwdController = TextEditingController();
-  
-  get signInWithEmailAndPassword => null;
+
+  final String txtMsg = "";
+
+  //get signInWithEmailAndPassword => null;
+  signInWithEmailAndPassword() async{
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text, 
+        password: pwdController.text
+        );
+        print("Login successfully!.");
+
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+      );
+
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +108,11 @@ class SignInPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 30,),
         
-                 MyButton(onTap: signInWithEmailAndPassword, hinText:"Sign In", labelText: 'Sign In',),
+                 //MyButton(onTap:signInWithEmailAndPassword, hinText:"Sign In", labelText: 'Sign In',),
+                 MyButton(onTap: () {
+                   signInWithEmailAndPassword(); 
+                   }, labelText: 'Sign In', hinText: 'Sign In',),
+                   
                  //MyButton(onTap: (){}, labelText: 'Sign In',),    
                  // or continue with
                  const SizedBox(height: 30,),

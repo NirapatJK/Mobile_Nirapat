@@ -3,17 +3,41 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mytravel/screens/sign_in_screen.dart';
 import 'package:mytravel/widgets/mybutton.dart';
 import 'package:mytravel/widgets/mytextfield.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   SignUpPage({super.key});
 
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
   final nameController = TextEditingController();
+
   final emailController = TextEditingController();
+
   final pwdController = TextEditingController();
+
   final repwdController = TextEditingController();
-  
-  get createUserWithEmailAndPassword => null;
+
+  //get createUserWithEmailAndPassword => null;
+  signUpWithEmailAndPassword() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text, 
+        password: pwdController.text
+        );
+        print("Created account.");
+
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => SignInPage()),
+      );
+
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +104,10 @@ class SignUpPage extends StatelessWidget {
         
                 const SizedBox(height: 30,),
         
-                MyButton(onTap: createUserWithEmailAndPassword, hinText: "Sign up", labelText: 'Sign up',),
+                //MyButton(onTap: signUpWithEmailAndPassword, hinText: "Sign up", labelText: 'Sign up',),
+                MyButton(onTap: () {
+                   signUpWithEmailAndPassword(); 
+                   }, labelText: 'Sign Up', hinText: 'Sign Up',),
                 //MyButton(onTap: (){}, labelText: 'Sign up',),
         
                 const SizedBox(height: 30,),
